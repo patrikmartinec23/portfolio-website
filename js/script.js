@@ -36,18 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const typingElement = document.getElementById('typing-text');
     const viewportHeight = window.innerHeight;
 
-    document
-        .getElementById('download-button')
-        .addEventListener('click', function () {
-            const link = document.createElement('a');
-            link.href =
-                'https://drive.google.com/file/d/1wcvC24CiWKJQjjxinX_-PQATLIIuYhOV/view?usp=sharing';
-            link.download = 'PatrikMartinec_CV.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-
     window.addEventListener('scroll', () => {
         const h = document.documentElement;
 
