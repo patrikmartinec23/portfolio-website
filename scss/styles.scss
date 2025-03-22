@@ -2,12 +2,6 @@
     background: #151515 url('../images/john-towner-JgOeRuGD_Y4-unsplash.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
-
-    @media only screen and (max-width: 768px) {
-        .header {
-            background-attachment: scroll;
-        }
-}
 }
 
 .header::after {
@@ -75,20 +69,22 @@
     outline: none;
 }
 
-/* Base styles for both buttons */
+/* Shared button properties - now applied to all three button types */
 .btn.contact-button, 
-.btn.download-button {
+.btn.download-button,
+.btn.go-to-button {
     position: relative;
     letter-spacing: 1px;
     font-weight: 700;
     transition: all 1s;
     outline: none;
-    min-width: 220px;
+    min-width: 220px;  /* This ensures all buttons have at least the same minimum width */
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    z-index: 1; /* Ensure the button has a stacking context */
+    z-index: 1;
+    position: relative !important;
 }
 
 /* Contact button styling */
@@ -112,7 +108,7 @@
 
 .btn.contact-button:hover {
     color: #fff !important;
-    background-color: transparent !important; /* Prevent Bootstrap from adding background */
+    background-color: transparent !important;
 }
 
 /* Download button styling */
@@ -139,58 +135,8 @@
     transition: all 1s;
 }
 
-/* Shared hover effects */
-.btn.download-button:hover::after, 
-.btn.contact-button:hover::after {
-    width: 100%;
-}
-
-/* Force ::after to properly position */
-.btn.contact-button::after,
-.btn.download-button::after {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    height: 100% !important;
-}
-
-/* Ensure button maintains relative positioning */
-.btn.contact-button,
-.btn.download-button {
-    position: relative !important;
-}
-
-/* Reset Bootstrap's hover background */
-.btn.btn-outline-dark.contact-button:hover {
-    background-color: transparent !important;
-}
-
-/* Prevent Bootstrap from changing border on hover */
-.btn.btn-outline-dark.contact-button:hover {
-    border-color: #000 !important;
-}
-
-/* Shared focus styles */
-.btn.download-button:focus, 
-.btn.contact-button:focus {
-    outline: none;
-}
-
-/* Go-to button styling - based on existing button pattern */
+/* Go-to button styling */
 .btn.go-to-button {
-    position: relative;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: all 1s;
-    outline: none;
-    min-width: 220px;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    z-index: 1;
-    
-    /* Primary color styling */
     background-color: var(--bs-primary) !important;
     color: #ffffff !important;
     border: none !important;
@@ -209,18 +155,40 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(101, 101, 101, 0.7); /* You could adjust this for a different hover effect */
+    background: rgba(101, 101, 101, 0.7);
     transition: all 1s;
+}
+
+/* Shared hover effects */
+.btn.download-button:hover::after,
+.btn.contact-button:hover::after,
+.btn.go-to-button:hover::after {
+    width: 100%;
+}
+
+/* Force ::after to properly position */
+.btn.contact-button::after, 
+.btn.download-button::after,
+.btn.go-to-button::after {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
     height: 100% !important;
 }
 
-.btn.go-to-button:hover::after {
-    width: 100%;
+/* Reset Bootstrap's hover background */
+.btn.btn-outline-dark.contact-button:hover {
+    background-color: transparent !important;
 }
 
+/* Prevent Bootstrap from changing border on hover */
+.btn.btn-outline-dark.contact-button:hover {
+    border-color: #000 !important;
+}
+
+/* Shared focus styles */
+.btn.download-button:focus,
+.btn.contact-button:focus,
 .btn.go-to-button:focus {
     outline: none;
 }
@@ -323,5 +291,12 @@
     position: relative; 
         width: 80%;
         min-width: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        background-image: url('../images/intro-bg.jpg');
+        background-attachment: scroll;
     }
 }
