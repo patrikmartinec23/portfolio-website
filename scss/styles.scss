@@ -297,6 +297,10 @@
 @media only screen and (max-width: 768px) {
     .header {
         background-image: url('../images/intro-bg.jpg');
-        background-attachment: scroll;
+        
+    }
+
+    #media.social {
+        bottom: 2rem; /* Adjust as needed */
     }
 }
