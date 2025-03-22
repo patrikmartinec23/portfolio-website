@@ -176,6 +176,55 @@
     outline: none;
 }
 
+/* Go-to button styling - based on existing button pattern */
+.btn.go-to-button {
+    position: relative;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: all 1s;
+    outline: none;
+    min-width: 220px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+    
+    /* Primary color styling */
+    background-color: var(--bs-primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn.go-to-button span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn.go-to-button::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(101, 101, 101, 0.7); /* You could adjust this for a different hover effect */
+    transition: all 1s;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    height: 100% !important;
+}
+
+.btn.go-to-button:hover::after {
+    width: 100%;
+}
+
+.btn.go-to-button:focus {
+    outline: none;
+}
+
 .about-img {
     width: 300px;
 }
