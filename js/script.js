@@ -15,7 +15,6 @@ function typeText(text, typingElement, delay) {
     isAnimating = true;
 
     typingElement.textContent = '';
-
     for (let i = 0; i < text.length; i++) {
         setTimeout(() => {
             typingElement.textContent += text.charAt(i);
@@ -29,8 +28,20 @@ function typeText(text, typingElement, delay) {
     }
 }
 
+function handleMediaVisibility() {
+    const mediaDiv = document.getElementById('media');
+    if (window.innerHeight < 520) {
+        mediaDiv.classList.add('d-none');
+    } else {
+        mediaDiv.classList.remove('d-none');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     runTypingEffect();
+
+    // Handle media visibility on page load
+    handleMediaVisibility();
 
     const progressBarInner = document.querySelector('#progress-bar');
     const typingElement = document.getElementById('typing-text');
@@ -55,4 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hasScrolledDown = false;
         }
     });
+
+    // Handle media visibility on window resize
+    window.addEventListener('resize', handleMediaVisibility);
 });
