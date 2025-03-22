@@ -21,7 +21,25 @@
         <title>Patrik Martinec | Services</title>
     </head>
     <body class="bg-light">
-        <!-- Packages -->
+        <!-- Progress Bar -->
+        <div class="fixed-top">
+            <div
+                class="progress mb-4 rounded-0"
+                style="height: 2px"
+                role="progressbar"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            >
+                <div
+                    id="progress-bar"
+                    class="progress-bar"
+                    style="width: 0%"
+                ></div>
+            </div>
+        </div>
+
+        <!-- Why work with me -->
         <section class="packages my-5">
             <div class="container">
                 <div class="row mb-2">
@@ -309,14 +327,30 @@
                     <div class="col-md-4">
                         <h3>Quick Links</h3>
                         <ul class="list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index.html#about">About Me</a></li>
-                            <li>
-                                <a href="index.html#portfolio">Portfolio</a>
-                            </li>
-                            <li><a href="index.html#services">Services</a></li>
-                            <li><a href="#">Bundles</a></li>
-                            <li><a href="index.html#contact">Contact</a></li>
+                            <div class="row">
+                                <div class="col-6">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li>
+                                        <a href="index.html#about">About Me</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html#portfolio"
+                                            >Portfolio</a
+                                        >
+                                    </li>
+                                </div>
+                                <div class="col-6">
+                                    <li>
+                                        <a href="index.html#services"
+                                            >Services</a
+                                        >
+                                    </li>
+                                    <li><a href="#">Bundles</a></li>
+                                    <li>
+                                        <a href="index.html#contact">Contact</a>
+                                    </li>
+                                </div>
+                            </div>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -358,6 +392,5 @@
         </footer>
 
         <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/script.js"></script>
     </body>
 </html>

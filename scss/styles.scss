@@ -2,6 +2,11 @@
     background: #151515 url('../images/john-towner-JgOeRuGD_Y4-unsplash.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
+
+    @media only screen and (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
 }
 
 .header::after {
@@ -269,8 +274,4 @@
         width: 80%;
         min-width: 200px;
     }
-}
-
-@media (max-width: 576px) {
-
 }
