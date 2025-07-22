@@ -1,42 +1,71 @@
-# Portfolio Website
+# Modern Portfolio Website
 
-This is a dark-light contrast website for a portfolio. It is related to being a web developer, but can be edited to be for any type of portfolio. It includes a bit of custom JavaScript for the typewriter effect and uses a script called "Lightbox" for the project modals.
+A sleek, modern portfolio website featuring gradient backgrounds, contemporary design patterns, and interactive elements. Built for web developers but easily customizable for any portfolio type. Features a clean, professional aesthetic with smooth animations and modern UI components.
 
-<img src="./images/screen.png" />
+## 🛠️ Setup & Installation
 
-## Features
+### Prerequisites
 
-- Dark and light contrast
-- Responsive design
-- Full height header/hero
-- Background image overlays
-- Typewriter effect in header
-- Lightbox modals for projects
-- Progress bar stats
-- Font awesome icons
+-   [Node.js](https://nodejs.org/en/) (version 14 or higher)
+-   npm (comes with Node.js)
 
-## Usage
+### Installation Steps
 
-This website is built with [Bootstrap](https://getbootstrap.com/) and [Sass](https://sass-lang.com/). It uses [Font Awesome](https://fontawesome.com/) for icons.
+1. **Clone the repository**
 
-In order to customize this website, you need to install [Node.js](https://nodejs.org/en/). Then, clone this repository and run:
+```bash
+git clone https://github.com/patrikmartinec23/portfolio-website.git
+cd portfolio-website
+```
+
+2. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-This will install Bootstrap, Sass and Font Awesome. To build your CSS files from Sass, run:
+3. **Build CSS from Sass**
 
 ```bash
 npm run sass:build
 ```
 
-To watch your Sass files for changes, run:
+4. **Start development (optional)**
 
 ```bash
 npm run sass:watch
 ```
 
-You can add Bootstrap variables to the `bootstrap.scss` file. You can look at the file `node_modules/bootstrap/dist/scss/_variables.scss` for a list of all the variables. Do NOT edit the `variables.scss` file directly, as it will be overwritten when you update Bootstrap.
+## 🚀 Scripts
 
-To add your own custom styles, use the `styles.scss` file.
+```bash
+# Build CSS from Sass (production)
+npm run sass:build
+
+# Watch Sass files for changes (development)
+npm run sass:watch
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 👨‍💻 Author
+
+**Patrik Martinec**
+
+-   GitHub: [@patrikmartinec23](https://github.com/patrikmartinec23)
+-   LinkedIn: [Patrik Martinec](https://www.linkedin.com/in/patrik-martinec-244992323/)
+-   Email: patrik.martinec1@gmail.com
+
+---
+
+⭐ Star this repository if you found it helpful!

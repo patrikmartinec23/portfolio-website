@@ -297,6 +297,14 @@ html, body {
     .header .roles {
         font-size: 18px !important;
     }
+    
+    .header .social {
+        gap: 1rem !important; /* Reduce gap on mobile */
+        
+        a {
+            margin: 0 0.25rem; /* Add smaller margins between icons */
+        }
+    }
 
     .about-content {
         flex-direction: column;
@@ -740,10 +748,29 @@ html, body {
                     word-break: break-all;
                     display: inline-block;
                     max-width: 100%;
+                    cursor: pointer;
+                    position: relative;
                     
                     &:hover {
                         color: #0056b3;
                         text-decoration: underline;
+                    }
+                    
+                    // Add copy icon for email links
+                    &[href^="mailto:"] {
+                        &::after {
+                            content: '\f0ea'; // FontAwesome copy icon
+                            font-family: 'Font Awesome 6 Free';
+                            font-weight: 900;
+                            margin-left: 8px;
+                            opacity: 0.6;
+                            transition: opacity 0.3s ease;
+                            font-size: 0.8em;
+                        }
+                        
+                        &:hover::after {
+                            opacity: 1;
+                        }
                     }
                 }
             }

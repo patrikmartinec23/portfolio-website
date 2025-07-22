@@ -100,12 +100,120 @@ function setupTechHoverEffects() {
     });
 }
 
+// Copy email to clipboard functionality
+function setupEmailCopy() {
+    const emailLink = document.querySelector(
+        '.contact-item a[href^="mailto:patrik.martinec1@gmail.com"]'
+    );
+    if (emailLink) {
+        emailLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            const email = 'patrik.martinec1@gmail.com';
+
+            // Modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard
+                    .writeText(email)
+                    .then(function () {
+                        showCopyNotification('Email copied to clipboard!');
+                    })
+                    .catch(function (err) {
+                        console.error('Failed to copy email: ', err);
+                        fallbackCopyTextToClipboard(email);
+                    });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(email);
+            }
+        });
+    }
+}
+
+// Fallback copy method for older browsers
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+
+    // Avoid scrolling to bottom
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.position = 'fixed';
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopyNotification('Email copied to clipboard!');
+        } else {
+            showCopyNotification('Failed to copy email');
+        }
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+        showCopyNotification('Failed to copy email');
+    }
+
+    document.body.removeChild(textArea);
+}
+
+// Show copy notification
+function showCopyNotification(message) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.copy-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'copy-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #007BFF, #0056b3);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        z-index: 10000;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateY(0)';
+    }, 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     runTypingEffect();
     handleMediaVisibility();
     createScrollObserver();
     setupSmoothScroll();
     setupTechHoverEffects();
+    setupEmailCopy(); // Add email copy functionality
 
     const progressBarInner = document.querySelector('#progress-bar');
     const typingElement = document.getElementById('typing-text');
